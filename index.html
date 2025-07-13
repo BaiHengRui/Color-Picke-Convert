@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取色器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="color-picker">
+            <div class="header">
+                <h1>预览颜色</h1>
+                <p class="subtitle">选择需要的颜色</p>
+            </div>
+            
+            <div class="color-display-container">
+                <div class="transparency-grid"></div>
+                <div class="color-display" id="colorDisplay"></div>
+                <div class="color-name" id="colorName">宝蓝色</div>
+            </div>
+            
+            <div class="color-input-container">
+                <div class="color-input-label">取色盘</div>
+                <input type="color" id="colorPicker" class="color-input" value="#4a69bd">
+            </div>
+            
+            <button class="color-table-toggle" id="colorTableToggle">
+                <i class="fas fa-palette"></i>
+                <span>展开颜色表</span>
+            </button>
+            
+            <div class="color-table-container" id="colorTableContainer">
+                <table class="color-table" id="colorTable">
+                    <thead>
+                        <tr>
+                            <th>颜色名称</th>
+                            <th>HEX值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 颜色表将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="color-info">
+            <div class="header">
+                <h1>色彩转换</h1>
+                <p class="subtitle">转换为RGB888/HEX</p>
+            </div>
+            
+            <div class="value-display">
+                <div class="value-group">
+                    <label>RGB:</label>
+                    <div class="value-container">
+                        <span id="rgbValue">74, 105, 189</span>
+                        <button class="copy-btn" data-value="rgb">
+                            <i class="fas fa-copy"></i> 复制
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="value-group">
+                    <label>HEX:</label>
+                    <div class="value-container">
+                        <span id="hexValue">#4a69bd</span>
+                        <button class="copy-btn" data-value="hex">
+                            <i class="fas fa-copy"></i> 复制
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="advanced-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>其它选项</span>
+                    </div>
+                </div>
+                
+                <div class="advanced-content">
+                    <div class="control-group">
+                        <label class="control-label">
+                            <i class="fas fa-adjust"></i>
+                            <span>透明度:</span>
+                            <span class="alpha-value" id="alphaValue">100%</span>
+                        </label>
+                        <input type="range" min="0" max="100" value="100" class="alpha-slider" id="alphaSlider">
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="bracketCheckbox" checked>
+                        <label class="checkbox-label" for="bracketCheckbox">复制RGB值时使用括号格式 (rgb/rgba)</label>
+                    </div>
+                    
+                    <div class="value-group" style="margin-top: 20px;">
+                        <label>RGB565:</label>
+                        <div class="value-container">
+                            <span id="rgb565Value">0x2537</span>
+                            <button class="copy-btn" data-value="rgb565">
+                                <i class="fas fa-copy"></i> 复制
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <p class="conversion-info">
+                        <i class="fas fa-info-circle"></i> 
+                        当开启括号格式时，RGB值将显示为rgb(x,x,x)或rgba(x,x,x,a)格式。
+                        关闭时，将显示为纯数字格式：x,x,x 或 x,x,x,a。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>取色器</p>
+            </div>
+        </div>
+    </div>
+    <script src="function.js"></script>
+</body>
+</html>
